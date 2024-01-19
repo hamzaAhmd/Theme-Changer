@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+        align-items: center;
+      }
+      .white {
+        background-color: white;
+        font-family: "Courier New", Courier, monospace;
+        text-align: center;
+        line-height: 20px;
+        word-wrap: break-word;
+      }
+      .black {
+        background-color: black;
+        color: white;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        line-height: 20px;
+        word-wrap: break-word;
+      }
+      .red {
+        background-color: rgb(121, 3, 3);
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        color: white;
+        text-align: center;
+        line-height: 20px;
+        word-wrap: break-word;
+      }
+      .yellow {
+        background-color: rgba(161, 152, 20, 0.945);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        line-height: 20px;
+        word-wrap: break-word;
+      }
+      #BTN {
+        width: 150px;
+        height: 40px;
+        background-color: rgba(124, 124, 124, 0.308);
+        border: 2px solid rgba(112, 112, 112, 0.842);
+        cursor: pointer;
+        color: rgb(0, 0, 0);
+        padding: 0px;
+        font-family: monospace;
+        font-weight: 700;
+        font-size: 2rem;
+      }
+      .content {
+        background-color: rgba(124, 124, 124, 0.692);
+        padding: 10px 5px;
+        margin-bottom: 10px;
+        width: 50%;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body class="white">
+    <div class="content">
+      <h1>Hey!! this is javascript</h1>
+      <hr width="80%" />
+      <p>
+        JavaScript is a versatile, high-level programming language primarily
+        known for its role in web development. Initially created to enhance the
+        interactivity of web pages, JavaScript has evolved into a robust and
+        widely used scripting language. It enables developers to create dynamic
+        and responsive user interfaces, offering the ability to manipulate HTML
+        and CSS, handle events, and communicate with web servers. JavaScript is
+        supported by all major browsers, making it a crucial component of modern
+        web development. Its flexibility extends beyond the browser as it is now
+        utilized in server-side development (Node.js), mobile app development
+        (React Native, Ionic), and even in building desktop applications. With
+        its simplicity and ubiquity, JavaScript plays a pivotal role in shaping
+        the interactive and dynamic nature of the internet.
+      </p>
+    </div>
+    <button id="BTN" function="changeTheme()">change</button>
+  </body>
+  <script>
+    // <== ----------------------------- First method ----------------------------- ==>
+    // const button = document.querySelector("button");
+    // function changeTheme(Changecolor) {
+
+    //     const body = document.body;
+    //     if (body.classList.contains("black")) {
+    //       body.style.backgroundColor = "white";
+    //       body.classList.remove("black");
+    //     } else if (body.classList.contains("white")) {
+    //       body.style.backgroundColor = "red";
+    //       body.classList.remove("white");
+    //     } else {
+    //       body.style.backgroundColor = "black";
+    //       body.classList.add("black");
+    //     }
+    //   }
+
+    // button.addEventListener("click", changeTheme);
+
+    // <== ----------------------------- Second method ----------------------------- ==>
+    const button = document.querySelector("button");
+
+    function changeTheme() {
+      const body = document.body;
+
+      switch (true) {
+        case body.classList.contains("black"):
+          body.style.backgroundColor = "white";
+          body.classList.remove("black");
+          body.classList.add("white");
+          break;
+        case body.classList.contains("white"):
+          body.style.backgroundColor = "red";
+          body.classList.add("red");
+          body.classList.remove("white");
+
+          break;
+        case body.classList.contains("red"):
+          body.style.backgroundColor = "yellow";
+          body.classList.add("yellow");
+          body.classList.remove("red");
+          break;
+        default:
+          body.style.backgroundColor = "black";
+          body.classList.remove("yellow");
+          body.classList.add("black");
+      }
+    }
+
+    button.addEventListener("click", changeTheme);
+  </script>
+</html>
